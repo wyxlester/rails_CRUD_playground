@@ -7,7 +7,16 @@
     <li>Age: <%= @profile.age %></li>
     <li>Email: <%= @profile.email %></li>
     <li>Favourite Color: <%= @profile.fav_color %></li>
+    <li>Number of Books: <%= @profile.books.count %></li>
   </ul>
+  <% if @profile.books %>
+    <h2>Book Collection</h2>
+    <ul>
+      <% @books.each do |book| %>
+        <li><%= book.title %>, published in <%= book.year %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
   <%= link_to "Back to profiles", profiles_path %>
 

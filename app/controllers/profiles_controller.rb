@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @books = Book.where(profile: params[:id])
   end
 
   # GET /profiles/new
