@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :profiles
   root to: "profiles#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :profiles do
+    # Nested Resources example
+    resources :testimonials, only: %i[new create]
+    resources :books, only: %i[new create edit update destroy]
+  end
 end

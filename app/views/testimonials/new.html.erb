@@ -1,0 +1,6 @@
+<h1>Testimonials#new</h1>
+
+<%= simple_form_for [@profile, @testimonial] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Submit testimonial", class: "btn btn-primary" %>
+<% end %>

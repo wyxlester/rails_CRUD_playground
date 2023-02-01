@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <div>
+  <%= link_to "Back", profiles_path %>
   <h2>Profile page</h2>
   <ul>
     <li>Name: <%= @profile.name %></li>
@@ -9,16 +10,30 @@
     <li>Favourite Color: <%= @profile.fav_color %></li>
     <li>Number of Books: <%= @profile.books.count %></li>
   </ul>
+  <br>
+  <%= link_to "Edit this profile", edit_profile_path(@profile) %>
+  <%= button_to "Destroy this profile", @profile, method: :delete %>
+
   <% if @profile.books %>
     <h2>Book Collection</h2>
     <ul>
       <% @books.each do |book| %>
-        <li><%= book.title %>, published in <%= book.year %></li>
+        <li>
+          <%= book.title %>, published in <%= book.year %> |
+        </li>
       <% end %>
     </ul>
   <% end %>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= link_to "Back to profiles", profiles_path %>
+  <br>
 
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
+  <% if @profile.testimonials %>
+    <h2>Testimonials</h2>
+    <ul>
+      <% @testimonials.each do |testimonial| %>
+        <li><%= testimonial.content %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= link_to 'Write a testimonial', new_profile_testimonial_path(@profile)%>
+
 </div>
