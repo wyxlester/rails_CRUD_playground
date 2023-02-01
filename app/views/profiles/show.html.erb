@@ -10,9 +10,9 @@
     <li>Favourite Color: <%= @profile.fav_color %></li>
     <li>Number of Books: <%= @profile.books.count %></li>
   </ul>
-  <br>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %>
   <%= button_to "Destroy this profile", @profile, method: :delete %>
+  <br>
 
   <% if @profile.books %>
     <h2>Book Collection</h2>
@@ -20,10 +20,16 @@
       <% @books.each do |book| %>
         <li>
           <%= book.title %>, published in <%= book.year %> |
+          <%=
+            link_to 'Delete',
+            book_path(book),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
         </li>
       <% end %>
     </ul>
   <% end %>
+  <%= link_to "Add a new book",  new_profile_book_path(@profile) %>
   <br>
 
   <% if @profile.testimonials %>

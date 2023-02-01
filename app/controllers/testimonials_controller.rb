@@ -1,15 +1,15 @@
 class TestimonialsController < ApplicationController
   before_action :set_profile, only: %i[new create]
 
+  def new
+    @testimonial = Testimonial.new
+  end
+
   def create
     @testimonial = Testimonial.new(testimonial_params)
     @testimonial.profile = @profile
     @testimonial.save
     redirect_to profile_path(@profile)
-  end
-
-  def new
-    @testimonial = Testimonial.new
   end
 
   def destroy

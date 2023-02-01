@@ -1,0 +1,7 @@
+<h1>Books#new</h1>
+
+<%= simple_form_for [@profile, @book] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :year %>
+  <%= f.submit "Add this book", class: "btn btn-primary" %>
+<% end %>
