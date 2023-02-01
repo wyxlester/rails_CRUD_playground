@@ -12,6 +12,12 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new
   end
 
+  def destroy
+    @testimonial = Testimonial.find(params[:id])
+    @testimonial.destroy
+    redirect_to profile_path(@testimonial.profile), status: :see_other
+  end
+
   private
 
   def set_profile

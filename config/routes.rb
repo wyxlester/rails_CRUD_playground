@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :testimonials, only: %i[new create]
     resources :books, only: %i[new create edit update destroy]
   end
+  resources :testimonials, only: %i[destroy]
 end

@@ -30,7 +30,14 @@
     <h2>Testimonials</h2>
     <ul>
       <% @testimonials.each do |testimonial| %>
-        <li><%= testimonial.content %></li>
+        <li>
+          <%= testimonial.content %> |
+          <%=
+            link_to 'Delete',
+            testimonial_path(testimonial),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        </li>
       <% end %>
     </ul>
   <% end %>
