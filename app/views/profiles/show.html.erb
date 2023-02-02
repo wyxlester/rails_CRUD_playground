@@ -1,8 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<%# <%= cl_image_tag("https://res.cloudinary.com/dqpfq3x5k/image/upload/v1675311455/development/dlxxc6pp984461e01hmzmmblf7dd.pdf",
-      width: 400, height: 300, crop: :fill) %>
-
 <% if @profile.cv.key %>
   <a href=<%= cl_image_path(@profile.cv.key) %>, target="_blank">CV</a>
 <% end %>

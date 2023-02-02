@@ -21,7 +21,7 @@ profile1 = Profile.create!(
   fav_color: Faker::Color.color_name
 )
 profile1.photo.attach(io: img1, filename: "nes.png", content_type: "image/png")
-profile1.cv.attach(io: pdf1, filename: 'lester_cv.pdf', content_type: "")
+profile1.cv.attach(io: pdf1, filename: 'lester_cv.jpg', content_type: "image/png")
 
 profile2 = Profile.create!(
   name: 'Kenneth',
