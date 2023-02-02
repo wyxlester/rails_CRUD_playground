@@ -1,11 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
+<%# <%= cl_image_tag("https://res.cloudinary.com/dqpfq3x5k/image/upload/v1675311455/development/dlxxc6pp984461e01hmzmmblf7dd.pdf",
+      width: 400, height: 300, crop: :fill) %>
+
+<% if @profile.cv.key %>
+  <a href=<%= cl_image_path(@profile.cv.key) %>, target="_blank">CV</a>
+<% end %>
+
 <div>
   <%= link_to "Back", profiles_path %>
   <h2>Profile page</h2>
   <ul>
     <li>Name: <%= @profile.name %></li>
-    <li><%= cl_image_tag @profile.photo.key, width: 400, height: 300, crop: :fill %></li>
+    <li>
+      <% if @profile.photo.key %>
+        <%= cl_image_tag @profile.photo.key, width: 400, height: 300, crop: :fill %>
+      <% end %>
+    </li>
     <li>Age: <%= @profile.age %></li>
     <li>Email: <%= @profile.email %></li>
     <li>Favourite Color: <%= @profile.fav_color %></li>

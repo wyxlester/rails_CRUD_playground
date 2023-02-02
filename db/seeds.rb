@@ -8,9 +8,11 @@ puts "Creating profiles..."
 
 require "open-uri"
 
-file1 = URI.open("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80")
+img1 = URI.open("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80")
 
-file2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+img2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+
+pdf1 = URI.open("https://res.cloudinary.com/dqpfq3x5k/image/upload/v1675311455/development/dlxxc6pp984461e01hmzmmblf7dd.jpg")
 
 profile1 = Profile.create!(
   name: 'Lester',
@@ -18,7 +20,8 @@ profile1 = Profile.create!(
   email: Faker::Internet.email,
   fav_color: Faker::Color.color_name
 )
-profile1.photo.attach(io: file1, filename: "nes.png", content_type: "image/png")
+profile1.photo.attach(io: img1, filename: "nes.png", content_type: "image/png")
+profile1.cv.attach(io: pdf1, filename: 'lester_cv.pdf', content_type: "")
 
 profile2 = Profile.create!(
   name: 'Kenneth',
@@ -26,7 +29,7 @@ profile2 = Profile.create!(
   email: Faker::Internet.email,
   fav_color: Faker::Color.color_name
 )
-profile2.photo.attach(io: file2, filename: "mountain.png", content_type: "image/png")
+profile2.photo.attach(io: img2, filename: "mountain.png", content_type: "image/png")
 
 profile3 = Profile.create!(
   name: 'Jega',
